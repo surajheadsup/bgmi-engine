@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">BGMI Engine Pro</string>
+    <string name="app_version">v4.0</string>
+    <string name="app_tagline">Smart Gaming Assistant</string>
+
+    <!-- Notification -->
+    <string name="channel_name">BGMI Engine Pro Service</string>
+    <string name="channel_description">Keeps the engine running in background</string>
+    <string name="notification_title">BGMI Engine Pro Running</string>
+    <string name="notification_text_idle">Monitoring for BGMI…</string>
+    <string name="notification_text_active">Optimizing BGMI performance</string>
+    <string name="notification_text_thermal">Thermal throttle active — cooling down</string>
+
+    <!-- Permissions -->
+    <string name="perm_shizuku_ready">Shizuku — Ready</string>
+    <string name="perm_shizuku_not_running">Shizuku — Not running</string>
+    <string name="perm_shizuku_no_permission">Shizuku — No permission</string>
+    <string name="perm_usage_granted">Usage Access — Granted</string>
+    <string name="perm_usage_required">Usage Access — Required</string>
+    <string name="perm_overlay_granted">Overlay — Granted</string>
+    <string name="perm_overlay_required">Overlay — Required</string>
+    <string name="shizuku_install_guide">Install Shizuku from Play Store and start via Wireless Debugging or ADB.</string>
+
+    <!-- Engine -->
+    <string name="engine_stopped">Engine Stopped</string>
+    <string name="engine_running">Engine Running</string>
+    <string name="btn_start_service">START</string>
+    <string name="btn_stop_service">STOP</string>
+    <string name="manual_override">Manual Override</string>
+    <string name="auto_mode">Auto (heat-based)</string>
+    <string name="override_120hz">120Hz locked</string>
+
+    <!-- Buttons -->
+    <string name="btn_grant_shizuku">Setup</string>
+    <string name="btn_grant_usage">Grant</string>
+    <string name="btn_grant_overlay">Grant</string>
+    <string name="btn_apply">▶ Apply</string>
+    <string name="btn_restore">↺ Restore</string>
+    <string name="btn_refresh">↻</string>
+    <string name="btn_copy">📋</string>
+    <string name="btn_kill">💀 Kill</string>
+    <string name="btn_kill_all">Kill All</string>
+    <string name="btn_kill_selected">Kill Sel.</string>
+    <string name="btn_whitelist">🛡 List</string>
+    <string name="btn_search">Search apps…</string>
+    <string name="btn_close">CLOSE</string>
+
+    <!-- Tabs -->
+    <string name="tab_home">Home</string>
+    <string name="tab_tools">Tools</string>
+    <string name="tab_gaming">Gaming</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- Section Headers -->
+    <string name="section_permissions">PERMISSIONS</string>
+    <string name="section_device_status">DEVICE STATUS</string>
+    <string name="section_optimizations">OPTIMIZATIONS</string>
+    <string name="section_general">GENERAL</string>
+    <string name="section_theme">THEME</string>
+    <string name="section_thermal">THERMAL THRESHOLDS</string>
+    <string name="section_data">DATA</string>
+    <string name="section_diagnostics">COMMAND DIAGNOSTICS</string>
+
+    <!-- Tools -->
+    <string name="tool_process_manager">Process Manager</string>
+    <string name="tool_process_desc">Kill apps, manage whitelist, search processes</string>
+    <string name="tool_system_apps">System Apps Manager</string>
+    <string name="tool_system_apps_desc">Uninstall, disable, freeze bloatware</string>
+    <string name="tool_device_info">Device Info</string>
+    <string name="tool_device_info_desc">Hardware, OS, storage, battery health</string>
+    <string name="tool_diagnostics">Command Diagnostics</string>
+    <string name="tool_diagnostics_desc">Test Shizuku commands, run custom shell</string>
+    <string name="tool_export">Export Data</string>
+    <string name="tool_export_desc">Export sessions CSV, share reports</string>
+
+    <!-- Gaming -->
+    <string name="gaming_analytics">Analytics Dashboard</string>
+    <string name="gaming_analytics_desc">Session stats, charts, performance trends</string>
+    <string name="gaming_history">Session History</string>
+    <string name="gaming_history_desc">Past sessions with detailed analysis</string>
+    <string name="gaming_logs">Engine Logs</string>
+    <string name="gaming_logs_desc">Mode changes, thermal events, app kills</string>
+
+    <!-- Settings -->
+    <string name="setting_dns">📶 DNS Optimizer</string>
+    <string name="setting_dns_desc">Switch to fast DNS for lower ping</string>
+    <string name="setting_touch">👆 Touch Boost</string>
+    <string name="setting_touch_desc">Increase touch response + pointer speed</string>
+    <string name="setting_gpu">🎮 GPU Performance Mode</string>
+    <string name="setting_gpu_desc">Force GPU to max frequency</string>
+    <string name="setting_clean">🧹 Pre-Game Clean</string>
+    <string name="setting_clean_desc">Clear cache + trim RAM before game</string>
+    <string name="setting_dnd">🔇 Auto Do Not Disturb</string>
+    <string name="setting_dnd_desc">Block notifications during gameplay</string>
+    <string name="setting_voice">🔊 Voice Alerts</string>
+    <string name="setting_voice_desc">TTS announcements for events</string>
+    <string name="setting_brightness">☀ Drop Brightness on Emergency</string>
+    <string name="setting_brightness_desc">Reduce to 40% during thermal emergency</string>
+    <string name="setting_battery_est">🔋 Battery Estimator</string>
+    <string name="setting_battery_est_desc">Show remaining gaming time in overlay</string>
+    <string name="setting_kill_bg">💀 Kill All BG on Emergency</string>
+    <string name="setting_kill_bg_desc">Aggressive kill + remove from recents</string>
+
+    <!-- Thermal -->
+    <string name="thermal_warning">Warning Temperature</string>
+    <string name="thermal_emergency">Emergency Cool Temperature</string>
+
+    <!-- Theme -->
+    <string name="theme_dark">🌙 Dark</string>
+    <string name="theme_light">☀ Light</string>
+    <string name="theme_amoled">⬛ AMOLED</string>
+
+    <!-- Thermal Settings -->
+    <string name="thermal_settings">Thermal Settings</string>
+    <string name="thermal_settings_desc">Warning/Emergency thresholds, cooling options</string>
+
+    <!-- Process Manager -->
+    <string name="filter_all">ALL</string>
+    <string name="filter_user">USER</string>
+    <string name="filter_system">SYSTEM</string>
+    <string name="no_whitelist">No whitelisted apps</string>
+    <string name="whitelist_title">Whitelist</string>
+
+    <!-- Kill Terminal -->
+    <string name="kill_terminal_title">💀 Kill Terminal</string>
+
+    <!-- Export -->
+    <string name="export_csv">📊 Export All Sessions (CSV)</string>
+    <string name="export_share">📤 Share Last Session Report</string>
+
+    <!-- Diagnostics -->
+    <string name="diag_whoami">Test: whoami</string>
+    <string name="diag_refresh_rate">Test: Get Refresh Rate</string>
+    <string name="diag_brightness">Test: Get Brightness</string>
+    <string name="diag_list_apps">Test: List Running Apps</string>
+    <string name="diag_kill_whatsapp">Test: Kill WhatsApp</string>
+    <string name="diag_kill_amazon">Test: Kill Amazon</string>
+    <string name="diag_run_custom">Run Custom Command</string>
+    <string name="diag_custom_hint">Custom shell command…</string>
+
+    <!-- About -->
+    <string name="about_title">BGMI Engine Pro v4.0</string>
+    <string name="about_subtitle">Smart Gaming Assistant</string>
+
+    <!-- Messages -->
+    <string name="msg_applied">Applied!</string>
+    <string name="msg_restored">Restored!</string>
+    <string name="msg_copied">Copied!</string>
+    <string name="msg_nothing_to_kill">Nothing to kill</string>
+    <string name="msg_coming_soon">Coming in Phase 2</string>
+    <string name="msg_no_sessions">No sessions yet</string>
+    <string name="msg_tap_refresh">Tap ↻ to read</string>
+    <string name="msg_reading">Reading…</string>
+    <string name="msg_shizuku_required">Shizuku permission required</string>
+</resources>

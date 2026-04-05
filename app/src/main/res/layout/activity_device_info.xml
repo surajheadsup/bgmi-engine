@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- Header bar with background -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="?attr/colorSurfaceContainerHigh"
+        android:paddingStart="14dp" android:paddingEnd="14dp"
+        android:paddingTop="12dp" android:paddingBottom="12dp"
+        android:elevation="2dp">
+        <TextView android:id="@+id/btnBack"
+            android:layout_width="36dp" android:layout_height="36dp"
+            android:text="\u2190" android:textColor="@color/accent" android:textSize="16sp"
+            android:gravity="center" android:background="@drawable/btn_back" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Device Info" android:textColor="@color/accent" android:textSize="18sp"
+            android:textStyle="bold" android:layout_marginStart="12dp" />
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="14dp">
+
+            <!-- DEVICE section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp" android:layout_marginBottom="8dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="DEVICE" android:textSize="10sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOutline" android:letterSpacing="0.15"
+                        android:layout_marginBottom="8dp" />
+                    <TextView android:id="@+id/tvDeviceModel" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="13sp"
+                        android:textColor="?attr/colorOnSurface" />
+                    <TextView android:id="@+id/tvDeviceBrand" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvDeviceBoard" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvDeviceHardware" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ANDROID section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp" android:layout_marginBottom="8dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="ANDROID" android:textSize="10sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOutline" android:letterSpacing="0.15"
+                        android:layout_marginBottom="8dp" />
+                    <TextView android:id="@+id/tvOsVersion" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                    <TextView android:id="@+id/tvApiLevel" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvSecurityPatch" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvBuildNumber" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- PROCESSOR section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp" android:layout_marginBottom="8dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="PROCESSOR" android:textSize="10sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOutline" android:letterSpacing="0.15"
+                        android:layout_marginBottom="8dp" />
+                    <TextView android:id="@+id/tvCpuInfo" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:text="CPU: Loading..." />
+                    <TextView android:id="@+id/tvCpuCores" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvCpuFreq" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvGpuInfo" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- MEMORY section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp" android:layout_marginBottom="8dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="MEMORY" android:textSize="10sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOutline" android:letterSpacing="0.15"
+                        android:layout_marginBottom="8dp" />
+                    <TextView android:id="@+id/tvRamTotal" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                    <TextView android:id="@+id/tvRamAvailable" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvStorageTotal" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvStorageAvailable" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- DISPLAY section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp" android:layout_marginBottom="8dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="DISPLAY" android:textSize="10sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOutline" android:letterSpacing="0.15"
+                        android:layout_marginBottom="8dp" />
+                    <TextView android:id="@+id/tvResolution" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                    <TextView android:id="@+id/tvDensity" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvRefreshRate" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- BATTERY section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp" android:layout_marginBottom="8dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="BATTERY" android:textSize="10sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOutline" android:letterSpacing="0.15"
+                        android:layout_marginBottom="8dp" />
+                    <TextView android:id="@+id/tvBatteryLevel" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                    <TextView android:id="@+id/tvBatteryHealth" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvBatteryTemp" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvBatteryVoltage" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvBatteryTech" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- THERMAL section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp" android:layout_marginBottom="8dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="THERMAL" android:textSize="10sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOutline" android:letterSpacing="0.15"
+                        android:layout_marginBottom="8dp" />
+                    <TextView android:id="@+id/tvThermalSkin" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:text="Skin/Shell: Loading..." />
+                    <TextView android:id="@+id/tvThermalChip" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    <TextView android:id="@+id/tvThermalBattery" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="11sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- Header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="?attr/colorSurfaceContainerHigh"
+        android:paddingStart="14dp" android:paddingEnd="14dp"
+        android:paddingTop="12dp" android:paddingBottom="12dp"
+        android:elevation="2dp">
+        <TextView android:id="@+id/btnBack"
+            android:layout_width="36dp" android:layout_height="36dp"
+            android:text="←" android:textColor="@color/accent" android:textSize="16sp"
+            android:gravity="center" android:background="@drawable/btn_back" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Settings" android:textColor="@color/accent" android:textSize="18sp"
+            android:textStyle="bold" android:layout_marginStart="12dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- THERMAL THRESHOLDS -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="THERMAL THRESHOLDS" android:textColor="@color/accent" android:textSize="13sp"
+            android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp" />
+
+        <!-- Warning slider -->
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Warning Temperature"
+                        android:textColor="@color/warning" android:textSize="13sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/tvWarningValue" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="58°C"
+                        android:textColor="@color/warning" android:textSize="13sp" android:textStyle="bold" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbWarningTemp" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:max="50"
+                    android:progressTint="@color/warning" android:thumbTint="@color/warning" android:layout_marginTop="4dp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="2dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="30°" android:textColor="?attr/colorOutline" android:textSize="9sp" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="40°" android:textColor="?attr/colorOutline" android:textSize="9sp" android:gravity="center" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="50°" android:textColor="?attr/colorOutline" android:textSize="9sp" android:gravity="center" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="60°" android:textColor="?attr/colorOutline" android:textSize="9sp" android:gravity="center" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="70°" android:textColor="@color/warning" android:textSize="9sp" android:gravity="center" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="80°" android:textColor="?attr/colorOutline" android:textSize="9sp" android:gravity="end" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Emergency slider -->
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Emergency Cool Temperature"
+                        android:textColor="@color/orange" android:textSize="13sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/tvEmergencyValue" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="64°C"
+                        android:textColor="@color/orange" android:textSize="13sp" android:textStyle="bold" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/sbEmergencyTemp" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:max="50"
+                    android:progressTint="@color/orange" android:thumbTint="@color/orange" android:layout_marginTop="4dp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="2dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="30°" android:textColor="?attr/colorOutline" android:textSize="9sp" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="40°" android:textColor="?attr/colorOutline" android:textSize="9sp" android:gravity="center" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="50°" android:textColor="?attr/colorOutline" android:textSize="9sp" android:gravity="center" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="60°" android:textColor="?attr/colorOutline" android:textSize="9sp" android:gravity="center" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="70°" android:textColor="@color/orange" android:textSize="9sp" android:gravity="center" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="80°" android:textColor="?attr/colorOutline" android:textSize="9sp" android:gravity="end" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- GAME OPTIMIZATIONS -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="GAME OPTIMIZATIONS" android:textColor="@color/accent" android:textSize="13sp"
+            android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <!-- DNS Optimizer -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="📶 DNS Optimizer" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Switch to fast DNS for lower ping" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchDns" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- DNS Provider selector — TextViews instead of ChipGroup -->
+                <LinearLayout android:id="@+id/layoutDnsProvider"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="12dp"
+                    android:layout_marginStart="16dp" android:visibility="gone">
+                    <TextView android:id="@+id/chipCloudflare"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Cloudflare" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="6dp" android:paddingBottom="6dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/chipGoogle"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Google" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="6dp" android:paddingBottom="6dp" android:layout_marginStart="3dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/chipAdguard"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="AdGuard" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="6dp" android:paddingBottom="6dp" android:layout_marginStart="3dp" />
+                </LinearLayout>
+
+                <!-- Touch Boost -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="👆 Touch Boost" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Increase touch response + pointer speed" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchTouchBoost" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- GPU Governor -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🎮 GPU Performance Mode" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Force GPU to max frequency" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchGpuBoost" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- Pre-Game Clean -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🧹 Pre-Game Clean" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Clear cache + trim RAM before game" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchPreGameClean" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- GENERAL FEATURES -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="GENERAL" android:textColor="@color/accent" android:textSize="13sp"
+            android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🔇 Auto Do Not Disturb" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Block notifications during gameplay" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchAutoDnd" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🔊 Voice Alerts" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="TTS announcements for events" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchVoice" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="☀ Drop Brightness on Emergency" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Reduce to 40% during thermal emergency" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchDropBrightness" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🔋 Battery Time Estimator" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Show remaining gaming time in overlay" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchBatteryEst" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="💀 Kill All BG on Emergency" android:textColor="?attr/colorOnSurface" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Aggressive kill + remove from recents" android:textColor="?attr/colorOutline" android:textSize="11sp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchKillAllBg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- EXPORT -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="DATA" android:textColor="@color/accent" android:textSize="13sp"
+            android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:padding="14dp">
+
+                <TextView android:id="@+id/btnExportCsv"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="📊 Export CSV" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                    android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                    android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginEnd="3dp" />
+
+                <TextView android:id="@+id/btnShareLastSession"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="📤 Share Report" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                    android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                    android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- COMMAND DIAGNOSTICS -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="COMMAND DIAGNOSTICS" android:textColor="@color/accent" android:textSize="13sp"
+            android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <TextView android:id="@+id/tvDiagShizukuStatus" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="Shizuku: checking..."
+                    android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="8dp" />
+
+                <!-- Test buttons as TextViews in rows -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:id="@+id/btnTestWhoami"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="whoami" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/btnTestRefreshRate"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Refresh Rate" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:id="@+id/btnTestBrightness"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Brightness" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/btnTestListApps"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Running Apps" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="8dp">
+                    <TextView android:id="@+id/btnTestKillWhatsapp"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Kill WhatsApp" android:textColor="@color/accent" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/btnTestKillAmazon"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Kill Amazon" android:textColor="@color/accent" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" />
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" app:boxBackgroundColor="?attr/colorSurfaceContainerLow" app:hintTextColor="?attr/colorOnSurfaceVariant">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCustomCommand" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:hint="Custom shell command..."
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp" android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView android:id="@+id/btnRunCustom"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Run Custom Command" android:textColor="@color/orange" android:textSize="11sp"
+                    android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                    android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginTop="6dp" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="10dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Output:" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    <TextView android:id="@+id/btnCopyOutput"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Copy" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="4dp" android:paddingBottom="4dp"
+                        android:paddingStart="12dp" android:paddingEnd="12dp" />
+                    <TextView android:id="@+id/btnClearOutput"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Clear" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="4dp" android:paddingBottom="4dp"
+                        android:paddingStart="12dp" android:paddingEnd="12dp"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_marginTop="4dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerLow" app:cardCornerRadius="6dp">
+                    <ScrollView android:layout_width="match_parent" android:layout_height="200dp">
+                        <TextView android:id="@+id/tvCommandOutput" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:padding="10dp"
+                            android:text="Tap a test button to run..." android:textColor="@color/success"
+                            android:textSize="11sp" android:fontFamily="monospace" />
+                    </ScrollView>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

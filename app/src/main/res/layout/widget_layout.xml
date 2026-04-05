@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/overlay_bg"
+    android:padding="10dp"
+    android:gravity="center_vertical">
+
+    <!-- Left: Info section -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Title + status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ Engine"
+                android:textColor="@color/accent"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/widgetStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OFF"
+                android:textColor="@color/danger"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:layout_marginStart="6dp" />
+        </LinearLayout>
+
+        <!-- Stats -->
+        <TextView
+            android:id="@+id/widgetTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌡 --°C  🔋 --%"
+            android:textColor="#CCCCCC"
+            android:textSize="10sp"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/widgetMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:textColor="@color/success"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="1dp" />
+    </LinearLayout>
+
+    <!-- Right: Action buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Start/Stop button — circle -->
+        <FrameLayout
+            android:id="@+id/widgetAction"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="8dp">
+
+            <View
+                android:id="@+id/widgetActionBg"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/widget_btn_start" />
+
+            <TextView
+                android:id="@+id/widgetActionIcon"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="▶"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <!-- Kill button — circle with border -->
+        <FrameLayout
+            android:id="@+id/widgetKill"
+            android:layout_width="44dp"
+            android:layout_height="44dp">
+
+            <View
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/widget_btn_kill" />
+
+            <TextView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="💀"
+                android:textSize="18sp"
+                android:gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

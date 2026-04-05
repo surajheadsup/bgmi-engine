@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Theme (default) -->
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#2979FF</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#0D1B3A</item>
+        <item name="colorOnPrimaryContainer">#FFFFFF</item>
+        <item name="colorSecondary">#4ECB71</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#1E1E35</item>
+        <item name="colorOnSecondaryContainer">#FFFFFF</item>
+        <item name="colorTertiary">#FFD700</item>
+        <item name="colorOnTertiary">#000000</item>
+        <item name="colorTertiaryContainer">#1E1E35</item>
+        <item name="colorOnTertiaryContainer">#FFFFFF</item>
+        <item name="colorSurface">#0F0F1A</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="colorSurfaceVariant">#161625</item>
+        <item name="colorOnSurfaceVariant">#AAAAAA</item>
+        <item name="colorSurfaceContainerLowest">#0A0A12</item>
+        <item name="colorSurfaceContainerLow">#0D0D1A</item>
+        <item name="colorSurfaceContainer">#121220</item>
+        <item name="colorSurfaceContainerHigh">#161625</item>
+        <item name="colorSurfaceContainerHighest">#1E1E35</item>
+        <item name="colorOutline">#333344</item>
+        <item name="colorOutlineVariant">#1E1E35</item>
+        <item name="colorError">#FF6B6B</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="android:statusBarColor">#0D0D1A</item>
+        <item name="android:navigationBarColor">#0D0D1A</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_thumb</item>
+        <item name="android:scrollbarSize">4dp</item>
+    </style>
+
+    <!-- Light Theme — clean black on white with depth and color accents -->
+    <style name="AppTheme.Light" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">#2979FF</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#E3F2FD</item>
+        <item name="colorOnPrimaryContainer">#0D47A1</item>
+        <item name="colorSecondary">#2E7D32</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#E8F5E9</item>
+        <item name="colorOnSecondaryContainer">#1B5E20</item>
+        <item name="colorTertiary">#E65100</item>
+        <item name="colorOnTertiary">#FFFFFF</item>
+        <item name="colorTertiaryContainer">#FFF3E0</item>
+        <item name="colorOnTertiaryContainer">#BF360C</item>
+        <item name="colorSurface">#F2F2F7</item>
+        <item name="colorOnSurface">#000000</item>
+        <item name="colorSurfaceVariant">#EAEAF0</item>
+        <item name="colorOnSurfaceVariant">#333333</item>
+        <item name="colorSurfaceContainerLowest">#F8F8FC</item>
+        <item name="colorSurfaceContainerLow">#F2F2F7</item>
+        <item name="colorSurfaceContainer">#EEEEF3</item>
+        <item name="colorSurfaceContainerHigh">#FFFFFF</item>
+        <item name="colorSurfaceContainerHighest">#FFFFFF</item>
+        <item name="colorOutline">#555555</item>
+        <item name="colorOutlineVariant">#CCCCCC</item>
+        <item name="colorError">#D32F2F</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="android:statusBarColor">#F2F2F7</item>
+        <item name="android:navigationBarColor">#F2F2F7</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <!-- AMOLED Theme -->
+    <style name="AppTheme.Amoled" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#2979FF</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#0A1020</item>
+        <item name="colorOnPrimaryContainer">#FFFFFF</item>
+        <item name="colorSecondary">#4ECB71</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#0A0A0A</item>
+        <item name="colorOnSecondaryContainer">#FFFFFF</item>
+        <item name="colorTertiary">#FFD700</item>
+        <item name="colorOnTertiary">#000000</item>
+        <item name="colorTertiaryContainer">#0A0A0A</item>
+        <item name="colorOnTertiaryContainer">#FFFFFF</item>
+        <item name="colorSurface">#000000</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="colorSurfaceVariant">#0A0A0A</item>
+        <item name="colorOnSurfaceVariant">#AAAAAA</item>
+        <item name="colorSurfaceContainerLowest">#000000</item>
+        <item name="colorSurfaceContainerLow">#050505</item>
+        <item name="colorSurfaceContainer">#0A0A0A</item>
+        <item name="colorSurfaceContainerHigh">#111111</item>
+        <item name="colorSurfaceContainerHighest">#1A1A1A</item>
+        <item name="colorOutline">#222222</item>
+        <item name="colorOutlineVariant">#111111</item>
+        <item name="colorError">#FF6B6B</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#000000</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_thumb</item>
+        <item name="android:scrollbarSize">4dp</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

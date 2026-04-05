@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp">
+
+        <!-- Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="14dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/app_name" android:textColor="?attr/colorOnSurface"
+                    android:textSize="18sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/app_tagline" android:textColor="?attr/colorOnSurfaceVariant"
+                    android:textSize="11sp" android:layout_marginTop="2dp" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="end">
+                <TextView android:id="@+id/tvHomeBattery" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="🔋 --%" android:textColor="@color/success"
+                    android:textSize="13sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tvHomeTemp" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="🌡 --°C"
+                    android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- System Stats -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+            app:cardCornerRadius="12dp" app:cardElevation="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:padding="14dp" android:gravity="center_vertical">
+                <TextView android:id="@+id/tvHomeRam" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="RAM --" android:textColor="?attr/colorOnSurface"
+                    android:textSize="11sp" android:textStyle="bold" android:gravity="center" />
+                <View android:layout_width="1dp" android:layout_height="16dp"
+                    android:background="?attr/colorOutlineVariant" />
+                <TextView android:id="@+id/tvHomeCpu" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="CPU --" android:textColor="?attr/colorOnSurface"
+                    android:textSize="11sp" android:textStyle="bold" android:gravity="center" />
+                <View android:layout_width="1dp" android:layout_height="16dp"
+                    android:background="?attr/colorOutlineVariant" />
+                <TextView android:id="@+id/tvHomeProcs" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="U:-- S:--" android:textColor="?attr/colorOnSurface"
+                    android:textSize="11sp" android:gravity="center" />
+                <TextView android:id="@+id/btnHomeKill"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Kill" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                    android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                    android:paddingTop="6dp" android:paddingBottom="6dp"
+                    android:paddingStart="14dp" android:paddingEnd="14dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Gaming Performance -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="GAMING PERFORMANCE" android:textColor="@color/accent" android:textSize="10sp"
+                    android:textStyle="bold" android:letterSpacing="0.15" android:layout_marginBottom="10dp" />
+
+                <!-- Stats row 1 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="8dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvPerfSessions" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0"
+                            android:textColor="@color/accent" android:textSize="20sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Sessions" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="10sp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvPerfPlayTime" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0m"
+                            android:textColor="?attr/colorOnSurface" android:textSize="20sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Play Time" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="10sp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvPerfScore" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--"
+                            android:textColor="@color/success" android:textSize="20sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Avg Score" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Stats row 2 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvPerfAvgTemp" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--"
+                            android:textColor="@color/warning" android:textSize="16sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Avg Temp" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="10sp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvPerfThermal" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="0"
+                            android:textColor="@color/danger" android:textSize="16sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Thermal Hits" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="10sp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvPerfLastSession" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--"
+                            android:textColor="?attr/colorOnSurface" android:textSize="13sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Last Session" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Permissions -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            style="@style/TextSection" android:text="@string/section_permissions"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+                    <View android:id="@+id/dotShizuku" android:layout_width="10dp" android:layout_height="10dp"
+                        android:background="@drawable/dot_green" />
+                    <TextView android:id="@+id/tvShizukuStatus" android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Shizuku" android:textColor="?attr/colorOnSurface"
+                        android:textSize="13sp" android:layout_marginStart="12dp" />
+                    <TextView android:id="@+id/btnGrantShizuku"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Setup" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="6dp" android:paddingBottom="6dp"
+                        android:paddingStart="14dp" android:paddingEnd="14dp" android:visibility="gone" />
+                </LinearLayout>
+                <TextView android:id="@+id/tvShizukuGuide" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/shizuku_install_guide"
+                    android:textColor="@color/warning" android:textSize="11sp" android:visibility="gone"
+                    android:layout_marginBottom="8dp" android:layout_marginStart="22dp" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+                    <View android:id="@+id/dotUsage" android:layout_width="10dp" android:layout_height="10dp"
+                        android:background="@drawable/dot_green" />
+                    <TextView android:id="@+id/tvUsageStatus" android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Usage Access" android:textColor="?attr/colorOnSurface"
+                        android:textSize="13sp" android:layout_marginStart="12dp" />
+                    <TextView android:id="@+id/btnGrantUsage"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Grant" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="6dp" android:paddingBottom="6dp"
+                        android:paddingStart="14dp" android:paddingEnd="14dp" android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:id="@+id/dotOverlay" android:layout_width="10dp" android:layout_height="10dp"
+                        android:background="@drawable/dot_green" />
+                    <TextView android:id="@+id/tvOverlayStatus" android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Overlay" android:textColor="?attr/colorOnSurface"
+                        android:textSize="13sp" android:layout_marginStart="12dp" />
+                    <TextView android:id="@+id/btnGrantOverlay"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Grant" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="6dp" android:paddingBottom="6dp"
+                        android:paddingStart="14dp" android:paddingEnd="14dp" android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Engine Control -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:id="@+id/tvEngineStatus" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="@string/engine_stopped"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="15sp" android:textStyle="bold" />
+                        <TextView android:id="@+id/tvEngineMode" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="@color/success"
+                            android:textSize="11sp" android:textStyle="bold" android:visibility="gone"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                    <TextView android:id="@+id/btnStartStop"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/btn_start_service"
+                        android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold"
+                        android:gravity="center" android:background="@drawable/toggle_btn_bg_active"
+                        android:paddingTop="8dp" android:paddingBottom="8dp"
+                        android:paddingStart="20dp" android:paddingEnd="20dp" />
+                </LinearLayout>
+
+                <TextView android:id="@+id/tvSessionInfo" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textColor="?attr/colorOnSurfaceVariant"
+                    android:textSize="11sp" />
+                <TextView android:id="@+id/tvStatsInfo" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textColor="?attr/colorOutline"
+                    android:textSize="11sp" android:visibility="gone" android:layout_marginTop="2dp" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="?attr/colorOutlineVariant"
+                    android:layout_marginTop="12dp" android:layout_marginBottom="10dp" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="@string/manual_override" android:textColor="?attr/colorOnSurface"
+                            android:textSize="13sp" />
+                        <TextView android:id="@+id/tvOverrideStatus" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="@string/auto_mode"
+                            android:textColor="@color/success" android:textSize="11sp" android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchOverride"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Device Status -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            style="@style/TextSection" android:text="@string/section_device_status"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.card.MaterialCardView android:id="@+id/cardDeviceStatus"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <!-- Action buttons -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="10dp">
+                    <TextView android:id="@+id/btnApplyNow"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="@string/btn_apply" android:textColor="@color/success" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/btnRestoreAll"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="@string/btn_restore" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/btnCopyStatus"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Copy" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/btnRefreshStatus"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Read" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" />
+                </LinearLayout>
+
+                <TextView android:id="@+id/tvDeviceStatusUpdated" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/msg_tap_refresh"
+                    android:textColor="?attr/colorOutline" android:textSize="11sp" android:layout_marginBottom="8dp" />
+
+                <!-- 2-column status -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:id="@+id/tvLiveShizuku" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="⚙ Shizuku: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/tvLiveRefreshRate" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="🖥 Refresh: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/tvLivePerfMode" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="⚡ BatSaver: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/tvLiveBrightness" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="☀ Bright: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/tvLiveBrightnessMode" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="☀ Mode: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:id="@+id/tvLiveDns" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="📶 DNS: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/tvLiveGpu" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="🎮 Adaptive: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/tvLivePointerSpeed" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="👆 Touch: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/tvLiveDnd" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="🔇 DND: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" android:layout_marginBottom="4dp" />
+                        <TextView android:id="@+id/tvLiveTemp" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="🌡 Temp: --"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:id="@+id/tvLiveUser" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="🔑 Shell: --"
+                    android:textColor="?attr/colorOutline" android:textSize="11sp" android:layout_marginTop="6dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand (same in all themes) -->
+    <color name="accent">#2979FF</color>
+    <color name="accent_dark">#1565C0</color>
+    <color name="success">#4ECB71</color>
+    <color name="warning">#FFD700</color>
+    <color name="danger">#FF6B6B</color>
+    <color name="info">#3498DB</color>
+    <color name="orange">#FF8C00</color>
+    <color name="purple">#9B59B6</color>
+
+    <!-- Theme-adaptive colors (dark defaults, overridden for light) -->
+    <color name="bg_elevated">#1E1E35</color>
+    <color name="border_light">#2A2A45</color>
+    <color name="overlay_bg">#D9111827</color>
+    <color name="overlay_border">#33E94560</color>
+    <color name="terminal_bg">#0D1117</color>
+    <color name="terminal_text">#4ECB71</color>
+    <color name="stats_bar_bg">#1A111827</color>
+    <color name="item_bg">#161625</color>
+    <color name="item_selected">#22E94560</color>
+    <color name="divider">#22FFFFFF</color>
+    <color name="btn_text_on_accent">#FFFFFF</color>
+
+    <!-- Process item backgrounds -->
+    <color name="proc_item_bg">#161625</color>
+
+    <!-- Checkbox tints -->
+    <color name="checkbox_tint">#E94560</color>
+    <color name="whitelist_tint">#4ECB71</color>
+</resources>

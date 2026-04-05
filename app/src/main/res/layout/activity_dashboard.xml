@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- Header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="?attr/colorSurfaceContainerHigh"
+        android:paddingStart="14dp" android:paddingEnd="14dp"
+        android:paddingTop="12dp" android:paddingBottom="12dp"
+        android:elevation="2dp">
+        <TextView android:id="@+id/btnBack"
+            android:layout_width="36dp" android:layout_height="36dp"
+            android:text="←" android:textColor="@color/accent" android:textSize="16sp"
+            android:gravity="center" android:background="@drawable/btn_back" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Analytics" android:textColor="@color/accent" android:textSize="18sp"
+            android:textStyle="bold" android:layout_marginStart="12dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- Nav buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <TextView android:id="@+id/btnHistory"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Session History" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginEnd="3dp" />
+
+            <TextView android:id="@+id/btnLogs"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Engine Logs" android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" />
+        </LinearLayout>
+
+        <!-- Summary Cards Row 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Sessions" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    <TextView android:id="@+id/tvTotalSessions" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0" android:textColor="?attr/colorOnSurface"
+                        android:textSize="24sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Play Time" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    <TextView android:id="@+id/tvTotalPlayTime" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0m" android:textColor="?attr/colorOnSurface"
+                        android:textSize="24sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardCornerRadius="10dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Avg FPS" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    <TextView android:id="@+id/tvAvgFps" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--" android:textColor="@color/success"
+                        android:textSize="24sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Summary Cards Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginEnd="4dp" app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Avg Temp" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    <TextView android:id="@+id/tvAvgTemp" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--" android:textColor="@color/warning"
+                        android:textSize="20sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginStart="4dp" android:layout_marginEnd="4dp"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Avg Score" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    <TextView android:id="@+id/tvAvgScore" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0" android:textColor="@color/accent"
+                        android:textSize="20sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginStart="4dp" app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Thermal" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                    <TextView android:id="@+id/tvTotalThermal" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0" android:textColor="@color/danger"
+                        android:textSize="20sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Peak temp + best session -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" app:cardBackgroundColor="?attr/colorSurfaceContainerHigh" app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Peak Temperature" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                <TextView android:id="@+id/tvPeakTemp" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="--" android:textColor="@color/danger"
+                    android:textSize="15sp" android:textStyle="bold" android:layout_marginTop="2dp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="?attr/colorOutlineVariant" android:layout_marginTop="8dp" android:layout_marginBottom="8dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Best Session (This Week)" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp" />
+                <TextView android:id="@+id/tvBestSession" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="No sessions yet" android:textColor="@color/success"
+                    android:textSize="13sp" android:layout_marginTop="2dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- FPS Bar Chart -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="FPS Per Session" android:textColor="?attr/colorOnSurface" android:textSize="15sp"
+            android:textStyle="bold" android:layout_marginBottom="8dp" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chartFps"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Score Line Chart -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Performance Score Trend" android:textColor="?attr/colorOnSurface" android:textSize="15sp"
+            android:textStyle="bold" android:layout_marginBottom="8dp" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chartScore"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="12dp" />
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

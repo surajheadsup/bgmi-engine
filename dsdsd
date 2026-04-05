@@ -1,0 +1,32 @@
+Features You Can Add Next
+
+  ┌─────┬─────────────────────────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+  │  #  │         Feature         │                                       What it does                                       │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 1   │ Network Optimizer       │ Switch DNS to Cloudflare (1.1.1.1) / Google (8.8.8.8) via Shizuku for lower ping         │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 2   │ Touch Boost             │ Increase touch sampling rate + reduce touch latency via Shizuku                          │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 3   │ Resolution Scaler       │ Lower screen resolution (e.g. 720p) during gameplay for major FPS boost, restore on exit │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 4   │ Auto DND                │ Block all notifications when BGMI is running (already in settings, just needs wiring)    │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 5   │ Pre-Game Optimizer      │ Clear app cache + trim memory + kill heavy apps BEFORE BGMI launches                     │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 6   │ GPU Governor            │ Force GPU to performance/max mode via Shizuku                                            │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 7   │ Multi-Game Support      │ Detect COD Mobile, Free Fire, Apex Legends — not just BGMI                               │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 8   │ Battery Drain Estimator │ Show "~X min remaining" based on drain rate during session                               │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 9   │ Export Stats            │ Share session data as image/CSV for social/analysis                                      │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 10  │ Home Screen Widget      │ Quick stats + one-tap engine start/stop                                                  │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 11  │ Notification Blocker    │ Suppress heads-up notifications during gameplay                                          │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 12  │ Game Profiles           │ Save/load different optimization presets (Competitive, Battery Saver, etc.)              │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 13  │ RAM Cleaner             │ Show detailed per-app memory usage, one-tap clean                                        │
+  ├─────┼─────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+  │ 14  │ Screen Recorder Boost   │ Optimize settings when screen recording is detected           

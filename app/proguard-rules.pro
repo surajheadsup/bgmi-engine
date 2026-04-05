@@ -1,0 +1,11 @@
+-keep class rikka.shizuku.** { *; }
+-keep class dev.rikka.shizuku.** { *; }
+-keep class com.bgmi.engine.data.** { *; }
+-keep class com.github.mikephil.charting.** { *; }
+-keep class com.bgmi.engine.WidgetStart { *; }
+-keep class com.bgmi.engine.WidgetStop { *; }
+-keep class com.bgmi.engine.WidgetKill { *; }
+-keep class com.bgmi.engine.EngineWidget { *; }
+-keep class com.bgmi.engine.BootReceiver { *; }
+-keep class com.bgmi.engine.UpdateManager { *; }
+-keep class com.bgmi.engine.BackupManager { *; }
