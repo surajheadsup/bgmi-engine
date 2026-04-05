@@ -55,27 +55,47 @@ class SettingsFragment : Fragment() {
         val btnCompetitive = view.findViewById<TextView>(R.id.btnPresetCompetitive)
         val btnBalanced = view.findViewById<TextView>(R.id.btnPresetBalanced)
         val btnBattery = view.findViewById<TextView>(R.id.btnPresetBattery)
+        val btnCustom = view.findViewById<TextView>(R.id.btnPresetCustom)
         val tvPresetInfo = view.findViewById<TextView>(R.id.tvPresetInfo)
         val tvPresetDesc = view.findViewById<TextView>(R.id.tvPresetDesc)
-        val presetBtns = listOf(btnCompetitive, btnBalanced, btnBattery)
+        val presetBtns = listOf(btnCompetitive, btnBalanced, btnBattery, btnCustom)
 
         fun updatePresetUI(active: String) {
             for (btn in presetBtns) setToggleInactive(btn)
-            val preset = when {
-                active.contains("competitive") -> { setToggleActive(btnCompetitive); EnginePrefs.PRESET_COMPETITIVE }
-                active.contains("battery") -> { setToggleActive(btnBattery); EnginePrefs.PRESET_BATTERY }
-                else -> { setToggleActive(btnBalanced); EnginePrefs.PRESET_BALANCED }
+            when {
+                active.contains("competitive") -> {
+                    setToggleActive(btnCompetitive)
+                    tvPresetInfo.text = EnginePrefs.PRESET_COMPETITIVE.name
+                    tvPresetDesc.text = EnginePrefs.PRESET_COMPETITIVE.description
+                }
+                active.contains("battery") -> {
+                    setToggleActive(btnBattery)
+                    tvPresetInfo.text = EnginePrefs.PRESET_BATTERY.name
+                    tvPresetDesc.text = EnginePrefs.PRESET_BATTERY.description
+                }
+                active.contains("custom") -> {
+                    setToggleActive(btnCustom)
+                    tvPresetInfo.text = "Custom"
+                    tvPresetDesc.text = "Your own settings — any toggle change stays here\nWarning: ${EnginePrefs.getWarningTemp(ctx)}°C | Emergency: ${EnginePrefs.getEmergencyTemp(ctx)}°C"
+                }
+                else -> {
+                    setToggleActive(btnBalanced)
+                    tvPresetInfo.text = EnginePrefs.PRESET_BALANCED.name
+                    tvPresetDesc.text = EnginePrefs.PRESET_BALANCED.description
+                }
             }
-            tvPresetInfo.text = preset.name
-            tvPresetDesc.text = preset.description
         }
 
         updatePresetUI(EnginePrefs.getActivePreset(ctx))
 
+        fun switchToCustom() {
+            EnginePrefs.setActivePreset(ctx, "custom")
+            updatePresetUI("custom")
+        }
+
         fun applyAndRefresh(preset: EnginePrefs.Preset) {
             EnginePrefs.applyPreset(ctx, preset)
             updatePresetUI(EnginePrefs.getActivePreset(ctx))
-            // Refresh toggles below
             view.findViewById<SwitchMaterial>(R.id.switchVoice).isChecked = EnginePrefs.isVoiceEnabled(ctx)
             view.findViewById<SwitchMaterial>(R.id.switchBrightness).isChecked = EnginePrefs.isDropBrightness(ctx)
             view.findViewById<SwitchMaterial>(R.id.switchBatteryEst).isChecked = EnginePrefs.isBatteryEstimatorEnabled(ctx)
@@ -86,17 +106,21 @@ class SettingsFragment : Fragment() {
         btnCompetitive.setOnClickListener { applyAndRefresh(EnginePrefs.PRESET_COMPETITIVE) }
         btnBalanced.setOnClickListener { applyAndRefresh(EnginePrefs.PRESET_BALANCED) }
         btnBattery.setOnClickListener { applyAndRefresh(EnginePrefs.PRESET_BATTERY) }
+        btnCustom.setOnClickListener {
+            switchToCustom()
+            android.widget.Toast.makeText(ctx, "Custom mode — change any setting below", android.widget.Toast.LENGTH_SHORT).show()
+        }
 
         // Thermal settings
         view.findViewById<View>(R.id.cardThermal).setOnClickListener {
             startActivity(Intent(ctx, SettingsActivity::class.java))
         }
 
-        // General toggles
-        setupSwitch(view, R.id.switchVoice, EnginePrefs.isVoiceEnabled(ctx)) { EnginePrefs.setVoiceEnabled(ctx, it) }
-        setupSwitch(view, R.id.switchBrightness, EnginePrefs.isDropBrightness(ctx)) { EnginePrefs.setDropBrightness(ctx, it) }
-        setupSwitch(view, R.id.switchBatteryEst, EnginePrefs.isBatteryEstimatorEnabled(ctx)) { EnginePrefs.setBatteryEstimatorEnabled(ctx, it) }
-        setupSwitch(view, R.id.switchKillBg, EnginePrefs.isKillAllBg(ctx)) { EnginePrefs.setKillAllBg(ctx, it) }
+        // General toggles — auto-switch to Custom on any change
+        setupSwitch(view, R.id.switchVoice, EnginePrefs.isVoiceEnabled(ctx)) { EnginePrefs.setVoiceEnabled(ctx, it); switchToCustom() }
+        setupSwitch(view, R.id.switchBrightness, EnginePrefs.isDropBrightness(ctx)) { EnginePrefs.setDropBrightness(ctx, it); switchToCustom() }
+        setupSwitch(view, R.id.switchBatteryEst, EnginePrefs.isBatteryEstimatorEnabled(ctx)) { EnginePrefs.setBatteryEstimatorEnabled(ctx, it); switchToCustom() }
+        setupSwitch(view, R.id.switchKillBg, EnginePrefs.isKillAllBg(ctx)) { EnginePrefs.setKillAllBg(ctx, it); switchToCustom() }
 
         // Backup / Restore
         view.findViewById<View>(R.id.btnBackup).setOnClickListener {

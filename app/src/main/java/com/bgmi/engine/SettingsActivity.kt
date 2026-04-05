@@ -42,10 +42,10 @@ class SettingsActivity : BaseActivity() {
 
     private fun setupThermalSliders() {
         setupSlider(R.id.sbWarningTemp, R.id.tvWarningValue, EnginePrefs.getWarningTemp(this))
-        { EnginePrefs.setWarningTemp(this, it) }
+        { EnginePrefs.setWarningTemp(this, it); EnginePrefs.setActivePreset(this, "custom") }
 
         setupSlider(R.id.sbEmergencyTemp, R.id.tvEmergencyValue, EnginePrefs.getEmergencyTemp(this))
-        { EnginePrefs.setEmergencyTemp(this, it) }
+        { EnginePrefs.setEmergencyTemp(this, it); EnginePrefs.setActivePreset(this, "custom") }
     }
 
     private fun setupSlider(seekId: Int, tvId: Int, initial: Int, onChanged: (Int) -> Unit) {

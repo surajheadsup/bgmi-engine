@@ -62,17 +62,22 @@
                     android:orientation="horizontal" android:layout_marginBottom="6dp">
                     <TextView android:id="@+id/btnPresetCompetitive"
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                        android:text="🏆 Competitive" android:textColor="?attr/colorOnSurface" android:textSize="10sp"
+                        android:text="🏆 Comp" android:textColor="?attr/colorOnSurface" android:textSize="10sp"
                         android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
                         android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginEnd="3dp" />
                     <TextView android:id="@+id/btnPresetBalanced"
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                        android:text="⚖ Balanced" android:textColor="?attr/colorOnSurface" android:textSize="10sp"
+                        android:text="⚖ Balance" android:textColor="?attr/colorOnSurface" android:textSize="10sp"
                         android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
                         android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" android:layout_marginEnd="3dp" />
                     <TextView android:id="@+id/btnPresetBattery"
                         android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                         android:text="🔋 Battery" android:textColor="?attr/colorOnSurface" android:textSize="10sp"
+                        android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
+                        android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" android:layout_marginEnd="3dp" />
+                    <TextView android:id="@+id/btnPresetCustom"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="⚙ Custom" android:textColor="?attr/colorOnSurface" android:textSize="10sp"
                         android:textStyle="bold" android:gravity="center" android:background="@drawable/toggle_btn_bg"
                         android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_marginStart="3dp" />
                 </LinearLayout>

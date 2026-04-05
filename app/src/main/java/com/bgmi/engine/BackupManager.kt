@@ -21,21 +21,19 @@ object BackupManager {
     private const val BACKUP_DIR = "bgmi_engine_backup"
     private const val BACKUP_FILE = "bgmi_backup.json"
 
+    private const val BACKUP_PATH = "/storage/emulated/0/Documents/$BACKUP_DIR"
+
     /**
      * Returns the backup directory on external storage (survives uninstall).
+     * Uses Shizuku to create the directory since direct access is restricted on Android 11+.
      */
-    private fun getBackupDir(context: Context): File {
-        // Use Documents directory — survives app uninstall
-        val docs = android.os.Environment.getExternalStoragePublicDirectory(
-            android.os.Environment.DIRECTORY_DOCUMENTS
-        )
-        val dir = File(docs, BACKUP_DIR)
-        if (!dir.exists()) dir.mkdirs()
-        return dir
+    private fun getBackupDir(context: Context): String {
+        ShizukuManager.runCommandSilent("mkdir -p $BACKUP_PATH")
+        return BACKUP_PATH
     }
 
-    private fun getBackupFile(context: Context): File {
-        return File(getBackupDir(context), BACKUP_FILE)
+    private fun getBackupFilePath(context: Context): String {
+        return "${getBackupDir(context)}/$BACKUP_FILE"
     }
 
     /**
@@ -102,19 +100,25 @@ object BackupManager {
                 }
                 json.put("sessions", sessionsJson)
 
-                // Write to file
-                val file = getBackupFile(ctx)
-                file.writeText(json.toString(2))
+                // Write to file via Shizuku (bypasses scoped storage)
+                val filePath = getBackupFilePath(ctx)
+                val jsonStr = json.toString(2)
+                // Write via app-internal temp file then copy with shell
+                val tempFile = File(ctx.cacheDir, "backup_temp.json")
+                tempFile.writeText(jsonStr)
+                ShizukuManager.runCommand("cp ${tempFile.absolutePath} $filePath")
+                ShizukuManager.runCommand("chmod 644 $filePath")
+                tempFile.delete()
 
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(activity)
                         .setTitle("Backup Complete")
-                        .setMessage("Saved to:\n${file.absolutePath}\n\nIncludes: settings, whitelist, theme, ${sessions.size} sessions.\n\nThis file survives app uninstall.")
+                        .setMessage("Saved to:\n$filePath\n\nIncludes: settings, whitelist, theme, ${sessions.size} sessions.\n\nThis file survives app uninstall.")
                         .setPositiveButton("OK") { d, _ -> d.dismiss() }
                         .show()
                 }
 
-                Log.d(TAG, "Backup saved to ${file.absolutePath}")
+                Log.d(TAG, "Backup saved to $filePath")
             } catch (e: Exception) {
                 Log.e(TAG, "Backup failed: ${e.message}")
                 withContext(Dispatchers.Main) {
@@ -135,20 +139,22 @@ object BackupManager {
         activity.lifecycleScope.launch(Dispatchers.IO) {
             try {
                 val ctx = activity.applicationContext
-                val file = getBackupFile(ctx)
+                val filePath = getBackupFilePath(ctx)
 
-                if (!file.exists()) {
+                // Read via Shizuku
+                val readResult = ShizukuManager.runCommand("cat $filePath")
+                if (!readResult.success || readResult.output.isBlank()) {
                     withContext(Dispatchers.Main) {
                         MaterialAlertDialogBuilder(activity)
                             .setTitle("No Backup Found")
-                            .setMessage("No backup file found at:\n${file.absolutePath}")
+                            .setMessage("No backup file found at:\n$filePath")
                             .setPositiveButton("OK") { d, _ -> d.dismiss() }
                             .show()
                     }
                     return@launch
                 }
 
-                val json = JSONObject(file.readText())
+                val json = JSONObject(readResult.output)
                 val backupDate = json.optString("date", "Unknown")
                 val backupVersion = json.optString("app_version", "?")
                 val sessionCount = json.optJSONArray("sessions")?.length() ?: 0
@@ -268,20 +274,23 @@ object BackupManager {
      */
     fun checkAndPromptRestore(activity: AppCompatActivity) {
         val ctx = activity.applicationContext
-        val file = getBackupFile(ctx)
-        if (!file.exists()) return
 
         // Only prompt if database is empty (fresh install)
         activity.lifecycleScope.launch(Dispatchers.IO) {
-            val db = com.bgmi.engine.data.AppDatabase.getInstance(ctx)
-            val count = db.gameSessionDao().getSessionCount()
-            if (count > 0) return@launch // Already has data, don't prompt
+            try {
+                val db = com.bgmi.engine.data.AppDatabase.getInstance(ctx)
+                val count = db.gameSessionDao().getSessionCount()
+                if (count > 0) return@launch
 
-            // Check if prefs are default (fresh install)
-            val prefs = ctx.getSharedPreferences("bgmi_engine_prefs", Context.MODE_PRIVATE)
-            if (prefs.all.isNotEmpty()) return@launch // Already configured
+                val prefs = ctx.getSharedPreferences("bgmi_engine_prefs", Context.MODE_PRIVATE)
+                if (prefs.all.isNotEmpty()) return@launch
 
-            val json = JSONObject(file.readText())
+                // Read backup via Shizuku
+                val filePath = getBackupFilePath(ctx)
+                val readResult = ShizukuManager.runCommand("cat $filePath")
+                if (!readResult.success || readResult.output.isBlank()) return@launch
+
+                val json = JSONObject(readResult.output)
             val backupDate = json.optString("date", "Unknown")
             val sessionCount = json.optJSONArray("sessions")?.length() ?: 0
 
@@ -297,6 +306,9 @@ object BackupManager {
                     .setNegativeButton("Start Fresh") { d, _ -> d.dismiss() }
                     .setCancelable(false)
                     .show()
+            }
+            } catch (e: Exception) {
+                Log.e(TAG, "Auto-restore check failed: ${e.message}")
             }
         }
     }
