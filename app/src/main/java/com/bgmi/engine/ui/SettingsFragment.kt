@@ -14,6 +14,7 @@ import android.content.Intent
 class SettingsFragment : Fragment() {
 
     private var isThemeChanging = false
+    private var isApplyingPreset = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_settings, container, false)
@@ -94,12 +95,14 @@ class SettingsFragment : Fragment() {
         }
 
         fun applyAndRefresh(preset: EnginePrefs.Preset) {
+            isApplyingPreset = true
             EnginePrefs.applyPreset(ctx, preset)
             updatePresetUI(EnginePrefs.getActivePreset(ctx))
             view.findViewById<SwitchMaterial>(R.id.switchVoice).isChecked = EnginePrefs.isVoiceEnabled(ctx)
             view.findViewById<SwitchMaterial>(R.id.switchBrightness).isChecked = EnginePrefs.isDropBrightness(ctx)
             view.findViewById<SwitchMaterial>(R.id.switchBatteryEst).isChecked = EnginePrefs.isBatteryEstimatorEnabled(ctx)
             view.findViewById<SwitchMaterial>(R.id.switchKillBg).isChecked = EnginePrefs.isKillAllBg(ctx)
+            isApplyingPreset = false
             android.widget.Toast.makeText(ctx, "${preset.name} applied", android.widget.Toast.LENGTH_SHORT).show()
         }
 
@@ -116,11 +119,11 @@ class SettingsFragment : Fragment() {
             startActivity(Intent(ctx, SettingsActivity::class.java))
         }
 
-        // General toggles — auto-switch to Custom on any change
-        setupSwitch(view, R.id.switchVoice, EnginePrefs.isVoiceEnabled(ctx)) { EnginePrefs.setVoiceEnabled(ctx, it); switchToCustom() }
-        setupSwitch(view, R.id.switchBrightness, EnginePrefs.isDropBrightness(ctx)) { EnginePrefs.setDropBrightness(ctx, it); switchToCustom() }
-        setupSwitch(view, R.id.switchBatteryEst, EnginePrefs.isBatteryEstimatorEnabled(ctx)) { EnginePrefs.setBatteryEstimatorEnabled(ctx, it); switchToCustom() }
-        setupSwitch(view, R.id.switchKillBg, EnginePrefs.isKillAllBg(ctx)) { EnginePrefs.setKillAllBg(ctx, it); switchToCustom() }
+        // General toggles — auto-switch to Custom on manual change only
+        setupSwitch(view, R.id.switchVoice, EnginePrefs.isVoiceEnabled(ctx)) { EnginePrefs.setVoiceEnabled(ctx, it); if (!isApplyingPreset) switchToCustom() }
+        setupSwitch(view, R.id.switchBrightness, EnginePrefs.isDropBrightness(ctx)) { EnginePrefs.setDropBrightness(ctx, it); if (!isApplyingPreset) switchToCustom() }
+        setupSwitch(view, R.id.switchBatteryEst, EnginePrefs.isBatteryEstimatorEnabled(ctx)) { EnginePrefs.setBatteryEstimatorEnabled(ctx, it); if (!isApplyingPreset) switchToCustom() }
+        setupSwitch(view, R.id.switchKillBg, EnginePrefs.isKillAllBg(ctx)) { EnginePrefs.setKillAllBg(ctx, it); if (!isApplyingPreset) switchToCustom() }
 
         // Backup / Restore
         view.findViewById<View>(R.id.btnBackup).setOnClickListener {
